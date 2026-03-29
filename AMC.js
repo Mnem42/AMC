@@ -27,5 +27,6 @@ elements.bromine = {
 		"copper": {elem1:null, elem2:"copper_bromide"},
 		"magnesium": {elem1:null, elem2:"magnesium_bromide"},
 		"sulfur": {elem1:[null,"disulfur_dibromide"], elem2:"disulfur_dibromide"}
+		"plant": {elem1:null, elem2:"dead_plant"}
 	}
 };
