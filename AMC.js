@@ -13,7 +13,6 @@ elements.bromine = {
 	category: "liquids",
 	viscosity: 0.944,
 	reactions: {
-		"aluminum": {elem1:null, elem2:"aluminum_bromide" },
 		"water": {elem1:null, elem2:"hydrobromic_acid"},
 		"propane": {elem1:"hydrobromic_acid", elem2:"2-bromopropane"},
 		"hydrogen": {elem1:"hydrobromic_acid", elem2:"hydrobromic_acid", tempMin:400},
@@ -28,5 +27,5 @@ elements.bromine = {
 		"copper": {elem1:null, elem2:"copper_bromide"},
 		"magnesium": {elem1:null, elem2:"magnesium_bromide"},
 		"sulfur": {elem1:[null,"disulfur_dibromide"], elem2:"disulfur_dibromide"}
-	};
-}
+	}
+};
