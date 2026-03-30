@@ -14,7 +14,9 @@ elements.bromine = {
 	viscosity: 0.944,
 	reactions: {
 		"water": {elem1:null, elem2:"hydrobromic_acid"},
-		"propane": {elem1:"hydrobromic_acid", elem2:"2-bromopropane"},
+		"propane": {elem1:"hydrobromic_acid", elem2:"brominated_hydrocarbons"},
+		"oil": {elem1:"hydrobromic_acid", elem2:"brominated_hydrocarbons"},
+		"lamp_oil": {elem1:"hydrobromic_acid", elem2:"brominated_hydrocarbons"},
 		"hydrogen": {elem1:"hydrobromic_acid", elem2:"hydrobromic_acid", tempMin:400},
 		"gold": {elem1:null, elem2:"gold_bromide", tempMin:140, tempMax:160},
 		"gold_coin": {elem1:null, elem2:"gold_bromide", tempMin:140, tempMax:160},
@@ -26,7 +28,10 @@ elements.bromine = {
 		"sodium": {elem1:"pop", elem2:"sodium_bromide"},
 		"copper": {elem1:null, elem2:"copper_bromide"},
 		"magnesium": {elem1:null, elem2:"magnesium_bromide"},
-		"sulfur": {elem1:[null,"disulfur_dibromide"], elem2:"disulfur_dibromide"}
-		"plant": {elem1:null, elem2:"dead_plant"}
+		"sulfur": {elem1:[null,"disulfur_dibromide"], elem2:"disulfur_dibromide"},
+		"plant": {elem1:null, elem2:"dead_plant"},
+		"potassium": {elem1:"pop", elem2:"potassium_bromide"},
+		"calcium": {elem1:null, elem2:"calcium_bromide"},
+		"uranium": {elem1:"null", elem2:"uranium_pentabromide"},
 	}
 };
