@@ -6,7 +6,7 @@ elements.bromine = {
 	density: 3102.8,
 	color: ["#401505","#401005","#401107","#3d190a"],
 	tempLow: -7.2,
-	tempHigh: 58.8,
+	tempHigh: 58.8
 	stateLow: "frozen_bromine",
 	stateHigh: "bromine_gas",
 	state: "liquid",
@@ -35,3 +35,4 @@ elements.bromine = {
 		"uranium": {elem1:"null", elem2:"uranium_pentabromide"},
 	}
 };
+
