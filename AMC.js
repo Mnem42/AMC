@@ -49,6 +49,11 @@ elements.ytterbium = {
 	reactions: {
 	  "water": {elem1:"ytterbium_hydroxide", elem2:"hydrogen"},
 	  "hydrogen": {elem1:"ytterbium_trihydride", elem2:null},
+	  "chlorine": {elem1:"ytterbium_chloride", elem2:null},
+	  "bromine": {elem1:"ytterbium_bromide", elem2:null},
+	  "hydrobromic_acid": {elem1:"ytterbium_bromide", elem2:"hydrogen"},
+	  "acid": {elem1:"ytterbium_chloride", elem2:"hydrogen"},
+	  "neutral_acid": {elem1:"ytterbium_chloride", elem2:["hydrogen","water"]},
 	},
 tick: function(pixel){
   for (let i = 0; i<adjacentCoords.length; i++){
@@ -87,6 +92,11 @@ elements.ytterbium_hydroxide = {
 	behavior: behaviors.WALL,
     conduct: 0.6,
 	hardness: 0.2,
+	reactions: {
+	  "hydrobromic_acid": {elem1:"ytterbium_bromide", elem2:"hydrogen"},
+	  "acid": {elem1:"ytterbium_chloride", elem2:"hydrogen"},
+	  "neutral_acid": {elem1:"ytterbium_chloride", elem2:["hydrogen","water"]},
+	},
 };
 //Ytterbium Oxide (Yb₂O₃)
 elements.ytterbium_oxide = {
@@ -97,6 +107,11 @@ elements.ytterbium_oxide = {
 	state: "solid",
 	category: "powders",
 	behavior: behaviors.POWDER,
+	reactions: {
+	  "hydrobromic_acid": {elem1:"ytterbium_bromide", elem2:"hydrogen"},
+	  "acid": {elem1:"ytterbium_chloride", elem2:"hydrogen"},
+	  "neutral_acid": {elem1:"ytterbium_chloride", elem2:["hydrogen","water"]},
+	},
 };
 elements.molten_ytterbium_oxide = {
 	density: 9000,
@@ -109,14 +124,18 @@ elements.molten_ytterbium_oxide = {
 	behavior: behaviors.MOLTEN,
 	fireColor: ["#39ff14", "#00913f"],
 };
-//Ytterbium Trihydride (YbH₃)
-elements.ytterbium_trihydride = {
-	density: 6700,
+//Ytterbium Dihydride (YbH2)
+elements.ytterbium_dihydride = {
+	density: 7100,
 	color: ["#23282b", "#474b4e"],
-	tempHigh: 1000,
+	tempHigh: 600,
 	stateHigh: ["molten_ytterbium", "hydrogen"],
 	state: "solid",
 	category: "powders",
 	behavior: behaviors.POWDER,
+	reactions: {
+	  "water": {elem1:"ytterbium_hydroxide", elem2:null},
+	},
 };
 //Ytterbium stuff by Ytterbium
+elements.acid.name="hydrochloric_acid"
