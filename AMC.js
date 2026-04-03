@@ -2,6 +2,47 @@
 //adacey's chemical mod
 //COMMUNITY R74ncord PROJECT TO MOD EVERY CHEMICAL ELEMENT INTO SANDBOXELS
 console.log("vro just play the mod")
+
+/**
+ * Makes an element deadly, directly mutating `elements[name]`.
+ * 
+ * This also mutates `elements.human` to add the reaction for making humans panic around the
+ * element.
+ * 
+ * @param {string} name The name of the element
+ * @param {"ACID" | "POISON"} type Whether it a (strong) acid or a poison
+ * @param {number} speed How fast it should be deadly
+ * 
+ * @param args The arguments for making the element
+ * @param {number} args.panic The amount humans should panic around this element. Defaults to 5.
+ * 
+ * @returns The reactions generated
+ */
+function make_deadly(name, type, speed, args = {}) {
+    const bug_entries = eLists.ANIMAL
+        .map(x => [x, { elem1: null, elem2: elements[x].breakInto, chance: speed }])
+
+    elements.human.reactions[name] = { attr1: { panic: args.panic ?? 5 } }
+
+    switch (type) {
+        case "ACID":
+            elements[name].reactions =  {
+                "plant": { elem1: null, elem2: "dead_plant", chance: speed },
+                "head": { elem1: "bone", chance: speed},
+                "body": { elem1: "bone", chance: speed},
+                ...Object.fromEntries(bug_entries)
+            }
+
+        case "POISON":
+            elements[name].reactions = {
+                "plant": { elem1: null, elem2: "dead_plant", chance: speed },
+                "head": { elem1: "rotten_meat", chance: speed},
+                "body": { elem1: "rotten_meat", chance: speed},
+                ...Object.fromEntries(bug_entries)
+            }
+    }
+}
+
 elements.bromine = {
 	density: 3102.8,
 	color: ["#401505","#401005","#401107","#3d190a"],
@@ -28,12 +69,13 @@ elements.bromine = {
 		"copper": {elem1:null, elem2:"copper_bromide"},
 		"magnesium": {elem1:null, elem2:"magnesium_bromide"},
 		"sulfur": {elem1:[null,"disulfur_dibromide"], elem2:"disulfur_dibromide"},
-		"plant": {elem1:null, elem2:"dead_plant"},
 		"potassium": {elem1:"pop", elem2:"potassium_bromide"},
 		"calcium": {elem1:null, elem2:"calcium_bromide"},
-		"uranium": {elem1:"null", elem2:"uranium_pentabromide"},
-	},
+		"uranium": {elem1:"null", elem2:"uranium_pentabromide"}
+	}
 };
+make_deadly("bromine", "POISON", 0.5)
+
 //Ytterbium (Yb)
 elements.ytterbium = {
 	density: 6970,
