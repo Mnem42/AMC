@@ -9,6 +9,7 @@ elements.bromine = {
 	tempHigh: 58.8,
 	state: "liquid",
 	category: "liquids",
+    behavior: behaviors.LIQUID,
 	viscosity: 0.944,
 	reactions: {
 		"water": {elem1:null, elem2:"hydrobromic_acid"},
@@ -31,7 +32,7 @@ elements.bromine = {
 		"potassium": {elem1:"pop", elem2:"potassium_bromide"},
 		"calcium": {elem1:null, elem2:"calcium_bromide"},
 		"uranium": {elem1:"null", elem2:"uranium_pentabromide"},
-	}
+	},
 };
 //Ytterbium (Yb)
 elements.ytterbium = {
